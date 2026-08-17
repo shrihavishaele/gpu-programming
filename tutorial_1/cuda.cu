@@ -46,16 +46,6 @@ int main() {
             // Populate the property structure for the current device index
             cudaGetDeviceProperties(&prop, i);
 
-            auto computeModeToStr = [](int mode)->std::string {
-                switch (mode) {
-                    case cudaComputeModeDefault: return "Default";
-                    case cudaComputeModeExclusive: return "Exclusive";
-                    case cudaComputeModeProhibited: return "Prohibited";
-                    case cudaComputeModeExclusiveProcess: return "Exclusive Process";
-                    default: return "Unknown";
-                }
-            };
-
             std::cout << "--- Device " << i << ": " << prop.name << " ---" << std::endl;
             std::cout << "  Compute Capability:          " << prop.major << "." << prop.minor << std::endl;
             std::cout << "  Total Global Memory:         " << prop.totalGlobalMem / (1024 * 1024) << " MB" << std::endl;
@@ -74,7 +64,6 @@ int main() {
             std::cout << "  Memory Clock Rate:           " << prop.memoryClockRate / 1000 << " MHz (bandwidth proxy)" << std::endl;
             std::cout << "  L2 Cache Size:               " << prop.l2CacheSize / 1024 << " KB (reduces global memory latency)" << std::endl;
             std::cout << "  Concurrent Kernels:          " << (prop.concurrentKernels ? "Yes" : "No") << " (stream parallelism support)" << std::endl;
-            std::cout << "  ECC Enabled:                 " << (prop.eccEnabled ? "Yes" : "No") << " (affects usable memory & reliability)" << std::endl;
 
             std::cout << std::endl;
     }
