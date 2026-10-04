@@ -1,0 +1,33 @@
+# Compiled binaries
+*.exe
+*.out
+*.o
+*.obj
+
+# CUDA compiled files
+*.cubin
+*.fatbin
+*.ptx
+
+# Debug files
+*.pdb
+*.ilk
+*.dSYM/
+
+# Visual Studio files
+*.suo
+*.user
+*.sln.docstates
+.vs/
+
+# Build directories
+build/
+Debug/
+Release/
+x64/
+x86/
+
+# OS generated files
+Thumbs.db
+desktop.ini
+.DS_Store
